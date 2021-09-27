@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1 id="titulo">Super Trunfo League of Legends</h1>
+    
+        <button id="sortear" onclick="sortearCarta()">Sortear Carta</button>
+    
+        <h2>Escolha seu Atributo</h2>
+        <div id="opcoes"> </div>
+        <button id="jogar" onclick="jogar()" disabled="true">Jogar</button>
+    
+        <div id="placar">
+          <p>&#x1F9D1;<span id="pontosJogador"> </span> x <span id="pontosMaquina"> </span>&#x1F916;</p>
+          <p id="quantidade-cartas"> </p>
+        </div>
+    
+        <div id="jogador1"> </div>
+        <div id="jogador2"> </div>
+        <div id="resultado"> </div>
+    
+        <button id="btnProximaRodada" onclick="proximaRodada()" disabled="true">Proxima Rodada</button>
+    
+        <audio autoplay="autoplay" id="myaudio">
+          <source src="https://static.wikia.nocookie.net/leagueoflegends/images/4/46/Announcer_Female1_117.ogg/revision/latest?cb=20171210091752" type="audio/ogg" id="audio">
+        </audio>
+      </div>
+    
+      <script>
+        var audio = document.getElementById("myaudio");
+        audio.volume = 0.4;
+      </script>
+      <script src="script.js"></script>
+</body>
+</html>
