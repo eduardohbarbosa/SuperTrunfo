@@ -17,11 +17,11 @@ body {
 }
 
 #placar{
-  width: 400px;
+  width: 420px;
   margin: auto;
   padding: 5px;
   text-align: center;
-  font-weight: 1.5em;
+  font-size: 1.2em;
 }
 
 #botoes{
@@ -33,7 +33,7 @@ body {
 .botao{
   width: 200px;
   height: 50px;
-  margin-top: 30px;
+  margin-top: 20px;
   border: none;
   border-radius: 30px;
   background-color: #2D69E8;
@@ -47,4 +47,54 @@ body {
   background-color: #2d68e8c2;
   border: 2px solid #C68D48;
   color: #C68D48;
+}
+
+#tabuleiro{
+  display: none;
+  position: relative;
+  max-width: 600px;
+  min-width: 300px;
+  height: 500px;
+  padding: 10px;
+  border-radius: 30px;
+  border: 2px solid #C68D48;
+  background-color: rgba(0, 0, 0, 0.534);
+  margin: 30px auto;
+  text-align: center;
+}
+
+#jogador1{
+  position: absolute;
+  width: 200px;
+}
+
+#jogador2{
+  position: absolute;
+  right: 0px;
+  width: 200px;
+}
+
+input{
+  display: none;
+}
+
+label{
+  display: block;
+  width: 150px;
+  margin: 20px auto;
+  text-transform: uppercase;
+}
+
+label:hover{
+  background: #2d68e8c2;
+}
+
+input:checked + label{
+  background: #2D69E8;
+  border: 2px solid #C68D48;
+}
+
+.atributosMaquina{
+  margin-top: 20px;
+  text-transform: uppercase;
 }

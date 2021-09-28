@@ -176,19 +176,20 @@ var cartaAhri = {
   
   //Exibir a carta do Jogador e seus Atributos e a carta da Maquina mas só a imagem
   function exibeCartas() {
+    var tabuleiro = document.getElementById('tabuleiro')
+    tabuleiro.style.display = 'block'
+
     maquina.innerHTML = `<p>${cartaMaquina.nome}</p>`;
     maquina.innerHTML += `<img src=${cartaMaquina.img} alt="${cartaMaquina.nome}" height="300px">`;
-    maquina.style.border = "ridge 5px rgba(255, 0, 0, 0.541)";
-    maquina.style.backgroundColor = "#000000ef";
+
   
     jogador.innerHTML = `<p>${cartaJogador.nome}</p>`;
     jogador.innerHTML += `<img src=${cartaJogador.img} alt="${cartaJogador.nome}" height="300px">`;
   
     for (var atributo in cartaJogador.atributos) {
-      jogador.innerHTML += `<br><input type='radio' name='atributo' value='${atributo}'>  ${atributo}: ${cartaJogador.atributos[atributo]} <br>`;
+      jogador.innerHTML += `<input type='radio' name='atributo' id='${atributo}' value='${atributo}'><label for="${atributo}"> ${atributo}: ${cartaJogador.atributos[atributo]} </label>`;
     }
-    jogador.style.border = "ridge 5px rgba(255, 0, 0, 0.541)";
-    jogador.style.backgroundColor = "#000000ef";
+
   }
   
   function obtemAtributoSelecionado() {
@@ -233,10 +234,10 @@ var cartaAhri = {
     } else {
       document.getElementById("botoes").innerHTML = `<button class="botao" id="btnProximaRodada" onclick="proximaRodada()" >Proxima Rodada</button>`
     }
-    maquina.innerHTML += `<p>Vida: ${cartaMaquina.atributos.vida}</p>`;
-    maquina.innerHTML += `<p>Mana: ${cartaMaquina.atributos.mana}</p>`;
-    maquina.innerHTML += `<p>Ataque: ${cartaMaquina.atributos.ataque}</p>`;
-    maquina.innerHTML += `<p>Armadura: ${cartaMaquina.atributos.armadura}</p>`;
+    maquina.innerHTML += `<p class='atributosMaquina'>Vida: ${cartaMaquina.atributos.vida}</p>`;
+    maquina.innerHTML += `<p class='atributosMaquina'>Mana: ${cartaMaquina.atributos.mana}</p>`;
+    maquina.innerHTML += `<p class='atributosMaquina'>Ataque: ${cartaMaquina.atributos.ataque}</p>`;
+    maquina.innerHTML += `<p class='atributosMaquina'>Armadura: ${cartaMaquina.atributos.armadura}</p>`;
   
 
   
@@ -249,14 +250,14 @@ var cartaAhri = {
     maquina.innerHTML = `<div id="jogador2"> </div>`;
     document.getElementById("botoes").innerHTML = `<button class="botao" id="sortear" onclick="sortearCarta()">Sortear Carta</button>`
 
-    var divResultado = document.getElementById("resultado");
+    var divResultado = document.getElementById("resultado")
+    var jogador1 =  document.getElementById("jogador1");
+    var jogador2 =  document.getElementById("jogador2");
+
     divResultado.innerHTML = "";
-  
-    maquina.style.border = "none";
-    maquina.style.backgroundColor = "none";
-  
-    jogador.style.border = "none";
-    jogador.style.backgroundColor = "rgba(255, 255, 255, 0)";
+    jogador1.innerHTML = ""
+    jogador2.innerHTML = ""
+
   }
 
   function jogarNovamente(){
