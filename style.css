@@ -2,6 +2,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 
+*{
+  margin: 0px;
+}
+
 body {
   font-family: "Libre Baskerville", serif;
   background-image: url("https://arena.rtp.pt/wp-content/uploads/2021/01/ErON4EhVkAI1UFy.jpg");
@@ -9,48 +13,38 @@ body {
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  padding-bottom: 20vh;
   color: white;
 }
 
-#container {
-  position: relative;
+#placar{
+  width: 400px;
+  margin: auto;
+  padding: 5px;
   text-align: center;
-  padding: 20px;
+  font-weight: 1.5em;
 }
 
-#titulo {
-  margin: 5px 0;
-  text-transform: uppercase;
+#botoes{
+  width: 200px;
+  margin: auto;
+  padding: 5px;
 }
 
-button {
-  padding: 0.8rem 1.5rem;
-  margin: 1rem 0;
-  border-radius: 5px;
+.botao{
+  width: 200px;
+  height: 50px;
+  margin-top: 30px;
   border: none;
-  font-size: 1rem;
+  border-radius: 30px;
+  background-color: #2D69E8;
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: white;
+  cursor: pointer;
 }
 
-#jogador1 {
-  width: 200px;
-  position: absolute;
-  left: 15%;
-  top: 14%;
-  padding-bottom: 15px;
-}
-
-#jogador2 {
-  width: 200px;
-  position: absolute;
-  right: 15%;
-  top: 14%;
-}
-
-#resultado {
-  font-size: 2em;
-}
-
-#placar {
-  font-size: 1.5em;
+.botao:hover{
+  background-color: #2d68e8c2;
+  border: 2px solid #C68D48;
+  color: #C68D48;
 }

@@ -168,10 +168,9 @@ var cartaAhri = {
     var numeroCartaJogador = parseInt(Math.random() * cartas.length);
     cartaJogador = cartas[numeroCartaJogador];
     cartas.splice(numeroCartaJogador, 1);
-  
-    document.getElementById("sortear").disabled = true; //Ativa o botão
-    document.getElementById("jogar").disabled = false; //Destiva o botão
-  
+
+    document.getElementById("botoes").innerHTML = `<button class="botao" id="jogar" onclick="jogar()">Jogar</button>`
+
     exibeCartas();
   }
   
@@ -211,40 +210,35 @@ var cartaAhri = {
     ) {
       res.innerHTML = "<p>Você Venceu</p>";
       pontosJogador++;
-    } else if (
-      cartaJogador.atributos[atributoSelecionado] <
-      cartaMaquina.atributos[atributoSelecionado]
-    ) {
+    } else if (cartaJogador.atributos[atributoSelecionado] < cartaMaquina.atributos[atributoSelecionado]) {
       res.innerHTML = "<p>Você Perdeu</p>";
       pontosMaquina++;
     } else {
       res.innerHTML = "<p>Empatou</p>";
     }
   
-    var audio = document.querySelector("audio");
     //Definição do Vencedor
     if (cartas.length == 0) {
       res.innerHTML = "<p>Fim de jogo</p>";
       if (pontosJogador > pontosMaquina) {
         res.innerHTML += '<p id="resultado-final">Você Venceu!</p>';
-        audio.src =
-          "https://static.wikia.nocookie.net/leagueoflegends/images/c/cb/Announcer_Female1_114.ogg/revision/latest?cb=20171210091748";
+              document.getElementById("botoes").innerHTML = `<button class="botao" id="btnJogarNovamente" onclick="jogarNovamente()" >Jogar Novamente</button>`
       } else if (pontosMaquina > pontosJogador) {
         res.innerHTML += '<p id="resultado-final">Você Perdeu!</p>';
-        audio.src =
-          "https://static.wikia.nocookie.net/leagueoflegends/images/2/2c/Announcer_Female1_051.ogg/revision/latest?cb=20171210091546";
-      } else {
+              document.getElementById("botoes").innerHTML = `<button class="botao" id="btnJogarNovamente" onclick="jogarNovamente()" >Jogar Novamente</button>`
+      }else {
         res.innerHTML += '<p id="resultado-final">Empatou!</p>';
+              document.getElementById("botoes").innerHTML = `<button class="botao" id="btnJogarNovamente" onclick="jogarNovamente()" >Jogar Novamente</button>`
       }
     } else {
-      document.getElementById("btnProximaRodada").disabled = false;
+      document.getElementById("botoes").innerHTML = `<button class="botao" id="btnProximaRodada" onclick="proximaRodada()" >Proxima Rodada</button>`
     }
     maquina.innerHTML += `<p>Vida: ${cartaMaquina.atributos.vida}</p>`;
     maquina.innerHTML += `<p>Mana: ${cartaMaquina.atributos.mana}</p>`;
     maquina.innerHTML += `<p>Ataque: ${cartaMaquina.atributos.ataque}</p>`;
     maquina.innerHTML += `<p>Armadura: ${cartaMaquina.atributos.armadura}</p>`;
   
-    document.getElementById("jogar").disabled = true;
+
   
     atualizaPlacar();
     atualizaQuantidadeDeCartas();
@@ -253,10 +247,8 @@ var cartaAhri = {
   function proximaRodada() {
     jogador.innerHTML = `<div id="jogador1"> </div>`;
     maquina.innerHTML = `<div id="jogador2"> </div>`;
-    document.getElementById("sortear").disabled = false;
-    document.getElementById("jogar").disabled = true;
-    document.getElementById("btnProximaRodada").disabled = true;
-  
+    document.getElementById("botoes").innerHTML = `<button class="botao" id="sortear" onclick="sortearCarta()">Sortear Carta</button>`
+
     var divResultado = document.getElementById("resultado");
     divResultado.innerHTML = "";
   
@@ -265,4 +257,8 @@ var cartaAhri = {
   
     jogador.style.border = "none";
     jogador.style.backgroundColor = "rgba(255, 255, 255, 0)";
+  }
+
+  function jogarNovamente(){
+    document.location.reload()
   }
